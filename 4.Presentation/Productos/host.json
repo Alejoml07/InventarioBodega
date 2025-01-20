@@ -1,0 +1,34 @@
+﻿{
+  "accountCosmoName": "AccountEndpoint=https://adminbd.documents.azure.com:443/;AccountKey=ksJmbXM8eBepSYgTYRbXKRRDguumy8hp3vnOIiKprPyuZ9zWBYtv4iB54oD8JpPLRbM2l22zrDshACDbzjm6Og==;",
+  "db": "puntosleonisa_dllo",
+  "extensions": {
+    "http": {
+      "routePrefix": "api",
+      "maxOutstandingRequests": 20,
+      "maxConcurrentRequests": 10,
+      "dynamicThrottlesEnabled": false,
+      "customHandler": {
+        "description": {
+          "default": {
+            "route": "{function}/{id?}",
+            "routes": [
+              {
+                "route": "csharp/products/{category:alpha}/{id:int?}",
+                "allowedMethods": [ "get", "post", "delete", "put" ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  "version": "2.0"
+}
